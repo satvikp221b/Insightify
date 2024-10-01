@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INSIGHTIFY</title>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">INSIGHTIFY</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <!--<li ><a href="index.html"><span class="glyphicon glyphicon-log-in"></span>Write a Review</a>-->
+                <li ><a href="{{url_for('coursereviews')}}">Reviews</a>
+                  <li >   </li> <li ></li><li ></li>
+
+
+            <li >   </li> <li ></li><li ></li>
+          </ul>
+        </div>
+      </nav>
+
+      <br> <br><br> <br><br>  <br><br> <br><br> <br><br>
+      <center>
+              <h3>CRN: {{crn}}</h3>
+        </center>
+       <div class="container">
+            <div class="jumbotron text-center">
+                <center>
+                <table class="table">
+
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Assessment Type</th>
+                        <th scope="col">Count</th>
+                     </tr>
+
+                    <tbody>
+                        {% for grade in result2 %}
+                    <tr>
+                         <td>{{grade.Type}}</td>
+                        <td>{{grade.Count}}</td>
+                    </tr>
+                    {% endfor %}
+
+                     </tbody>
+                     </thead>
+                  </table>
+                    </center>
+
+            </div>
+         </div>
+          <div class="container">
+            <div class="jumbotron text-center">
+                <center>
+
+
+                <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Term-Year</th>
+                        <th scope="col">Instructor Name</th>
+                        <th scope="col">Average GPA</th>
+                        <th scope="col">Average Workload</th>
+<!--                        <th scope="col">Average Difficulty</th>-->
+                        <th scope="col">Average Rating
+                          <th scope="col">Number of Reviews</th>
+                          <th scope="col">Number of Enrollments</th>
+                          <th scope="col">Difficulty</th>
+                      </tr>
+                      {% for grade in result %}
+                    </thead>
+                    <tbody>
+<!--                      <tr>-->
+<!--                        <td>{{grade.YearTerm}}</td>-->
+<!--                        <td>-->
+<!--                            <a href="{{url_for('instructor', given_ins_id=grade.ID)}}" method="POST"> {{grade.Instructor_name}}</a> </a>-->
+<!--                        </td>-->
+<!--                      <td>{{grade.avg_score}}</td>-->
+<!--                    <td>{{grade.avg_load}}</td>-->
+<!--                    <td>{{grade.avg_diff}}</td>-->
+<!--                    <td>{{grade.avg_rating}}</td>-->
+<!--                    <td>-->
+<!--                            <a href="{{url_for('getReviewsPerCRNTerm', crn=grade.CRN, term=grade.YearTerm)}}" method="POST"> {{grade.num_revs}}</a> </a>-->
+<!--                        </td>-->
+<!--                    <td>{{grade.enrollments}}</td>-->
+                    <tr>
+                        <td>{{grade.term}}</td>
+                        <td>
+                            <a href="{{url_for('instructor', given_ins_id=grade.ins_id)}}" method="POST"> {{grade.ins_name}}</a> </a>
+                        </td>
+                      <td>{{grade.avgScore}}</td>
+                    <td>{{grade.avgLoad}}</td>
+<!--                    <td>{{grade.avgDiff}}</td>-->
+                    <td>{{grade.avgRating}}</td>
+                    <td>
+                            <a href="{{url_for('getReviewsPerCRNTerm', crn=grade.crn, term=grade.term)}}" method="POST"> {{grade.numRevs}}</a> </a>
+                        </td>
+                    <td>{{grade.enrollments}}</td>
+                    <td>{{grade.diff}}</td>
+                      
+                    </tbody>
+                    {% endfor %}
+                  </table>
+            </center>
+            </div>
+          </div> 
+    </body>
+</html>

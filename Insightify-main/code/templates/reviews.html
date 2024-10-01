@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INSIGHTIFY</title>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="{{url_for('user')}}" method="POST">INSIGHTIFY</a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li ><a href="{{url_for('addReviewPage')}}"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp Write a Review</a>
+                <li >   </li> <li ></li><li ></li>
+              </ul>
+            </div>
+          </nav>
+          <br> <br><br> <br><br>  <br><br> <br><br> <br><br>
+        <div class="container">
+        <div class="jumbotron text-center">
+        <center>
+            <h3>NetId: {{user}}</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">CRN</th>
+                    <th scope="col">Term</th>
+                    <th scope="col">Work Load</th>
+                    <th scope="col">Difficulty</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Text Review</th>
+                      <th scope="col">Sub Reviews</th>
+                  </tr>
+                 
+                </thead>
+                <tbody>
+                  <tr>
+                    {% for rev in result %}
+                    <td>{{rev.CRN}}</td>
+                    <td>{{rev.Term}}</td>
+                    <td>{{rev.WorkLoad}}</td>
+                    <td>{{rev.Difficulty}}</td>
+                    <td>{{rev.Rating}}</td>
+                    <td>{{rev.TextReview}}</td>
+                    <td><a href="{{url_for('subreviews', review_id=rev.ReviewId)}}"><button type="button" class="btn btn-primary">View Sub-Reviews</button></a></td>
+                    <td><a href="{{url_for('updateReviewPage', rev_id=rev.ReviewId)}}" method="POST"> <button type="button" class="btn btn-primary btn-sm">Edit</button></a></td>
+                    <td><a href="{{url_for('deleteReview', rev_id=rev.ReviewId)}}" method="POST"> <button type="button" class="btn btn-primary btn-sm">Delete</button></a></td>
+                </tbody>
+                {% endfor %}
+              </table>
+        </center>
+        </div>
+        </div>
+    </body>
+</html>

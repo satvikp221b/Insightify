@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INSIGHTIFY</title>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">INSIGHTIFY</a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+              </ul>
+            </div>
+          </nav>
+          <br> <br><br> <br><br>  <br><br> <br><br> <br><br>
+          <div class="container">
+              <h5 style="color: red;">Failed to create a review: {{result}}</h5>
+          <form action="{{ url_for('createReview')}}" method="POST">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp Write Review </div>
+                <div class="panel-body">
+                  <div class="form-group">
+                    <label for="email">Enter Course Label:- </label>
+                    <input type="text" class="form-control" id="Course" placeholder=" EX:- CS411" name="Course" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="Term">Enter Term:- </label>
+                    <input type="text" class="form-control" id="Term" placeholder="EX :-  fall-2022" name="Term" required>
+                  </div>
+                    <div class="form-group">
+                    <label for="WorkLoad">Work Load:- </label><br>
+                    <input type="text" class="form-control" id="WorkLoad" placeholder="Enter the workload in hours " name="WorkLoad" required>
+                    </div>
+<!--                  <div class="form-group">-->
+<!--                    <label for="text">Work Load:- </label><br>-->
+<!--                    <fieldset id="group1">-->
+<!--                     <input type="radio" id="w_1" name="group1" value="1">-->
+<!--                     <label for="1">1(< 10 hrs)</label><br>-->
+<!--                     <input type="radio" id="w_2" name="group1" value="2">-->
+<!--                     <label for="2">2 (10-15 hrs)</label><br>-->
+<!--                     <input type="radio" id="w_3" name="group1" value="3">-->
+<!--                     <label for="3">3 (16-20 hrs)</label><br>-->
+<!--                     <input type="radio" id="w_4" name="group1" value="4">-->
+<!--                     <label for="4">4 (20-25 hrs)</label><br>-->
+<!--                      <input type="radio" id="w_5" name="group1" value="5">-->
+<!--                     <label for="5">5 (> 25 hrs)</label><br>-->
+<!--                     </fieldset>-->
+<!--                  </div>-->
+                  <div class="form-group">
+                    <fieldset id="group2">
+                    <label for="text">Difficulty:- </label><br>
+                    <input type="radio" id="d_1" name="group2" value="1">
+                     <label for="1">1(min)</label><br>
+                     <input type="radio" id="d_2" name="group2" value="2">
+                     <label for="2">2</label><br>
+                     <input type="radio" id="d_3" name="group2" value="3">
+                     <label for="3">3</label><br>
+                     <input type="radio" id="d_4" name="group2" value="4">
+                     <label for="4">4</label><br>
+                     <input type="radio" id="d_5" name="group2" value="5">
+                     <label for="5">5(max)</label><br>
+                    </fieldset>
+                  </div>
+                  <div class="form-group">
+                    <fieldset id="group3">
+                    <label for="text">Rating:- </label><br>
+                    <input type="radio" id="r_1" name="group3" value="1">
+                     <label for="1">1(min)</label><br>
+                     <input type="radio" id="r_2" name="group3" value="2">
+                     <label for="2">2</label><br>
+                     <input type="radio" id="r_3" name="group3" value="3">
+                     <label for="3">3</label><br>
+                     <input type="radio" id="r_4" name="group3" value="4">
+                     <label for="4">4</label><br>
+                     <input type="radio" id="r_5" name="group3" value="5">
+                     <label for="5">5(max)</label><br>
+                    </fieldset>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Enter Review:- </label>
+                    <input type="text" class="form-control" id="review" placeholder="review" name="review" required>
+                  </div>
+                      <input type = "Submit" class="btn btn-primary btn-block" role="button">
+                    </form>
+                </div>
+                <div class="panel-footer"> </div>
+              </div>
+        </div>
+        <br> <br><br> <br><br>  <br><br> <br><br> <br>    <br>
+
+    </body>
+</html>
